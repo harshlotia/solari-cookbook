@@ -1,0 +1,152 @@
+[
+  {
+    "run_id": "_demo_intentional_failure-20260913T023946Z-6cce38",
+    "journey": "_demo_intentional_failure",
+    "backend": "browser",
+    "timestamp": "2026-09-13 02:39:46 UTC",
+    "passed": false,
+    "judge": "heuristic",
+    "verdict_reasons": [
+      "expected page text to contain 'Welcome, Admin Dashboard'"
+    ],
+    "session_id_short": "Ap0srfZk0Tkc\u2026",
+    "duration_ms": 4282,
+    "diff_pct": null,
+    "diff_note": "no baseline yet; this run becomes the baseline"
+  },
+  {
+    "run_id": "desktop-notepad-smoke-20260913T023953Z-19fec4",
+    "journey": "desktop-notepad-smoke",
+    "backend": "desktop",
+    "timestamp": "2026-09-13 02:39:53 UTC",
+    "passed": true,
+    "judge": "heuristic",
+    "verdict_reasons": [
+      "all text/url expectations satisfied"
+    ],
+    "session_id_short": "ZGVza3RvcC1w\u2026",
+    "duration_ms": 7359,
+    "diff_pct": null,
+    "diff_note": "no baseline yet; this run becomes the baseline"
+  },
+  {
+    "run_id": "dynamic-content-visual-drift-20260913T023957Z-9c3907",
+    "journey": "dynamic-content-visual-drift",
+    "backend": "browser",
+    "timestamp": "2026-09-13 02:39:57 UTC",
+    "passed": true,
+    "judge": "heuristic",
+    "verdict_reasons": [
+      "all text/url expectations satisfied"
+    ],
+    "session_id_short": "Ang53n2-UPyI\u2026",
+    "duration_ms": 3094,
+    "diff_pct": null,
+    "diff_note": "no baseline yet; this run becomes the baseline"
+  },
+  {
+    "run_id": "login-invalid-credentials-20260913T024001Z-7fc128",
+    "journey": "login-invalid-credentials",
+    "backend": "browser",
+    "timestamp": "2026-09-13 02:40:01 UTC",
+    "passed": true,
+    "judge": "heuristic",
+    "verdict_reasons": [
+      "all text/url expectations satisfied"
+    ],
+    "session_id_short": "Akaqm4bU1_gY\u2026",
+    "duration_ms": 4171,
+    "diff_pct": null,
+    "diff_note": "no baseline yet; this run becomes the baseline"
+  },
+  {
+    "run_id": "login-success-20260913T024005Z-c52261",
+    "journey": "login-success",
+    "backend": "browser",
+    "timestamp": "2026-09-13 02:40:05 UTC",
+    "passed": true,
+    "judge": "heuristic",
+    "verdict_reasons": [
+      "all text/url expectations satisfied"
+    ],
+    "session_id_short": "AoDm8o7dkRjD\u2026",
+    "duration_ms": 4016,
+    "diff_pct": null,
+    "diff_note": "no baseline yet; this run becomes the baseline"
+  },
+  {
+    "run_id": "_demo_intentional_failure-20260913T024016Z-520d96",
+    "journey": "_demo_intentional_failure",
+    "backend": "browser",
+    "timestamp": "2026-09-13 02:40:16 UTC",
+    "passed": false,
+    "judge": "heuristic",
+    "verdict_reasons": [
+      "expected page text to contain 'Welcome, Admin Dashboard'"
+    ],
+    "session_id_short": "AgejStpJ1ucq\u2026",
+    "duration_ms": 4250,
+    "diff_pct": null,
+    "diff_note": "no baseline yet; this run becomes the baseline"
+  },
+  {
+    "run_id": "desktop-notepad-smoke-20260913T024025Z-9c8e73",
+    "journey": "desktop-notepad-smoke",
+    "backend": "desktop",
+    "timestamp": "2026-09-13 02:40:25 UTC",
+    "passed": true,
+    "judge": "heuristic",
+    "verdict_reasons": [
+      "all text/url expectations satisfied"
+    ],
+    "session_id_short": "ZGVza3RvcC1w\u2026",
+    "duration_ms": 7467,
+    "diff_pct": 0.01,
+    "diff_note": "0.01% of pixels changed vs. last known-good baseline"
+  },
+  {
+    "run_id": "dynamic-content-visual-drift-20260913T024029Z-687158",
+    "journey": "dynamic-content-visual-drift",
+    "backend": "browser",
+    "timestamp": "2026-09-13 02:40:29 UTC",
+    "passed": true,
+    "judge": "heuristic",
+    "verdict_reasons": [
+      "all text/url expectations satisfied"
+    ],
+    "session_id_short": "AgW3wtA7AiXR\u2026",
+    "duration_ms": 3155,
+    "diff_pct": 4.08,
+    "diff_note": "4.08% of pixels changed vs. last known-good baseline"
+  },
+  {
+    "run_id": "login-invalid-credentials-20260913T024033Z-ed959c",
+    "journey": "login-invalid-credentials",
+    "backend": "browser",
+    "timestamp": "2026-09-13 02:40:33 UTC",
+    "passed": true,
+    "judge": "heuristic",
+    "verdict_reasons": [
+      "all text/url expectations satisfied"
+    ],
+    "session_id_short": "Aqgw_GOBu2f6\u2026",
+    "duration_ms": 3891,
+    "diff_pct": 0.0,
+    "diff_note": "0.0% of pixels changed vs. last known-good baseline"
+  },
+  {
+    "run_id": "login-success-20260913T024038Z-9ba479",
+    "journey": "login-success",
+    "backend": "browser",
+    "timestamp": "2026-09-13 02:40:38 UTC",
+    "passed": true,
+    "judge": "heuristic",
+    "verdict_reasons": [
+      "all text/url expectations satisfied"
+    ],
+    "session_id_short": "AmIgK0dd4vcp\u2026",
+    "duration_ms": 4078,
+    "diff_pct": 0.0,
+    "diff_note": "0.0% of pixels changed vs. last known-good baseline"
+  }
+]

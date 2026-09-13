@@ -40,3 +40,4 @@ variable it reads and nothing else.
 | Application | Language | What it does |
 | --- | --- | --- |
 | [worldline](worldline) | Python | Snapshot-branch competing plans, verify their artifacts, and replay only the winner |
+| [journeyman](journeyman) | Python | Judge a user journey's own visible text pass/fail, then catch what that check can't: a Sandbox-computed pixel diff against the last known-good run |

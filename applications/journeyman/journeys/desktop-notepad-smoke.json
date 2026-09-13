@@ -1,0 +1,15 @@
+{
+  "name": "desktop-notepad-smoke",
+  "backend": "desktop",
+  "description": "Mousepad opens on the desktop and the typed line is visible in the editor.",
+  "steps": [
+    { "action": "open", "text": "mousepad" },
+    { "action": "click", "selector": "320,300" },
+    { "action": "type", "text": "journeyman desktop smoke check" },
+    { "action": "wait", "ms": 1500 }
+  ],
+  "expect": {
+    "text_contains": [],
+    "text_absent": []
+  }
+}

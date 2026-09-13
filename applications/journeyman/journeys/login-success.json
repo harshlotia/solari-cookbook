@@ -1,0 +1,17 @@
+{
+  "name": "login-success",
+  "backend": "browser",
+  "description": "A user logs in with valid credentials and lands on the secure area with a success banner visible.",
+  "url": "https://the-internet.herokuapp.com/login",
+  "steps": [
+    { "action": "fill", "selector": "#username", "text": "tomsmith" },
+    { "action": "fill", "selector": "#password", "text": "SuperSecretPassword!" },
+    { "action": "click", "selector": "button[type=submit]" },
+    { "action": "wait", "ms": 800 }
+  ],
+  "expect": {
+    "url_contains": "/secure",
+    "text_contains": ["You logged into a secure area"],
+    "text_absent": ["invalid"]
+  }
+}
