@@ -1,0 +1,17 @@
+{
+  "name": "_demo_intentional_failure",
+  "backend": "browser",
+  "description": "DEMO ONLY: logs in with valid credentials but asserts on text the app never shows, to prove Journeyman's failure path (and its incident report) actually fires. This is not a real regression in the target site - see the README.",
+  "url": "https://the-internet.herokuapp.com/login",
+  "steps": [
+    { "action": "fill", "selector": "#username", "text": "tomsmith" },
+    { "action": "fill", "selector": "#password", "text": "SuperSecretPassword!" },
+    { "action": "click", "selector": "button[type=submit]" },
+    { "action": "wait", "ms": 800 }
+  ],
+  "expect": {
+    "url_contains": "/secure",
+    "text_contains": ["Welcome, Admin Dashboard"],
+    "text_absent": []
+  }
+}

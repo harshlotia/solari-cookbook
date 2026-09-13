@@ -1,0 +1,13 @@
+{
+  "name": "dynamic-content-visual-drift",
+  "backend": "browser",
+  "description": "The dynamic content page loads with its header and explanatory copy intact.",
+  "url": "https://the-internet.herokuapp.com/dynamic_content",
+  "steps": [
+    { "action": "wait", "ms": 300 }
+  ],
+  "expect": {
+    "text_contains": ["Dynamic Content", "ever-evolving nature of content"],
+    "text_absent": ["error"]
+  }
+}

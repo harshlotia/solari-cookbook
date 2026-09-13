@@ -1,0 +1,109 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Journeyman dashboard</title>
+<style>
+body { font-family: -apple-system, Segoe UI, Helvetica, Arial, sans-serif; margin: 0;
+       background: #0b0d12; color: #e6e8ee; }
+header { padding: 24px 32px; border-bottom: 1px solid #1f2430; }
+h1 { margin: 0 0 4px; font-size: 20px; }
+.sub { color: #8b93a7; font-size: 13px; }
+main { padding: 24px 32px; max-width: 1000px; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px;
+         font-weight: 600; letter-spacing: .02em; }
+.pass { background: #133a24; color: #57d98a; }
+.fail { background: #3a1717; color: #ff7a7a; }
+.card { background: #12151d; border: 1px solid #1f2430; border-radius: 10px; padding: 20px;
+        margin-bottom: 20px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+img { max-width: 100%; border-radius: 6px; border: 1px solid #1f2430; display: block; }
+ul { margin: 8px 0 0; padding-left: 20px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #1f2430; }
+th { color: #8b93a7; font-weight: 600; }
+a { color: #7aa2ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+code { background: #1a1e28; padding: 1px 6px; border-radius: 4px; }
+</style></head>
+<body>
+<header>
+  <h1>Journeyman</h1>
+  <div class="sub">8/10 passing · 10 runs recorded</div>
+</header>
+<main>
+  <div class="card">
+    <table>
+      <tr><th>Journey</th><th>Backend</th><th>Result</th><th>Visual diff</th><th>When</th><th>Duration</th></tr>
+      <tr>
+          <td><a href="login-success-20260913T024038Z-9ba479/report.html">login-success</a></td>
+          <td>browser</td>
+          <td><span class="badge pass">PASS</span></td>
+          <td>0.0%</td>
+          <td>2026-09-13 02:40:38 UTC</td>
+          <td>4078 ms</td>
+        </tr><tr>
+          <td><a href="login-invalid-credentials-20260913T024033Z-ed959c/report.html">login-invalid-credentials</a></td>
+          <td>browser</td>
+          <td><span class="badge pass">PASS</span></td>
+          <td>0.0%</td>
+          <td>2026-09-13 02:40:33 UTC</td>
+          <td>3891 ms</td>
+        </tr><tr>
+          <td><a href="dynamic-content-visual-drift-20260913T024029Z-687158/report.html">dynamic-content-visual-drift</a></td>
+          <td>browser</td>
+          <td><span class="badge pass">PASS</span></td>
+          <td>4.08%</td>
+          <td>2026-09-13 02:40:29 UTC</td>
+          <td>3155 ms</td>
+        </tr><tr>
+          <td><a href="desktop-notepad-smoke-20260913T024025Z-9c8e73/report.html">desktop-notepad-smoke</a></td>
+          <td>desktop</td>
+          <td><span class="badge pass">PASS</span></td>
+          <td>0.01%</td>
+          <td>2026-09-13 02:40:25 UTC</td>
+          <td>7467 ms</td>
+        </tr><tr>
+          <td><a href="_demo_intentional_failure-20260913T024016Z-520d96/report.html">_demo_intentional_failure</a></td>
+          <td>browser</td>
+          <td><span class="badge fail">FAIL</span></td>
+          <td>—</td>
+          <td>2026-09-13 02:40:16 UTC</td>
+          <td>4250 ms</td>
+        </tr><tr>
+          <td><a href="login-success-20260913T024005Z-c52261/report.html">login-success</a></td>
+          <td>browser</td>
+          <td><span class="badge pass">PASS</span></td>
+          <td>—</td>
+          <td>2026-09-13 02:40:05 UTC</td>
+          <td>4016 ms</td>
+        </tr><tr>
+          <td><a href="login-invalid-credentials-20260913T024001Z-7fc128/report.html">login-invalid-credentials</a></td>
+          <td>browser</td>
+          <td><span class="badge pass">PASS</span></td>
+          <td>—</td>
+          <td>2026-09-13 02:40:01 UTC</td>
+          <td>4171 ms</td>
+        </tr><tr>
+          <td><a href="dynamic-content-visual-drift-20260913T023957Z-9c3907/report.html">dynamic-content-visual-drift</a></td>
+          <td>browser</td>
+          <td><span class="badge pass">PASS</span></td>
+          <td>—</td>
+          <td>2026-09-13 02:39:57 UTC</td>
+          <td>3094 ms</td>
+        </tr><tr>
+          <td><a href="desktop-notepad-smoke-20260913T023953Z-19fec4/report.html">desktop-notepad-smoke</a></td>
+          <td>desktop</td>
+          <td><span class="badge pass">PASS</span></td>
+          <td>—</td>
+          <td>2026-09-13 02:39:53 UTC</td>
+          <td>7359 ms</td>
+        </tr><tr>
+          <td><a href="_demo_intentional_failure-20260913T023946Z-6cce38/report.html">_demo_intentional_failure</a></td>
+          <td>browser</td>
+          <td><span class="badge fail">FAIL</span></td>
+          <td>—</td>
+          <td>2026-09-13 02:39:46 UTC</td>
+          <td>4282 ms</td>
+        </tr>
+    </table>
+  </div>
+</main>
+</body></html>
