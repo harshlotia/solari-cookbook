@@ -1,0 +1,442 @@
+<title>Journeyman</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --paper: #e7ebe2;
+    --paper-raised: #f3f5ee;
+    --paper-line: #c9d0c2;
+    --ink: #1b2018;
+    --ink-soft: #5a6354;
+    --ink-faint: #838d76;
+    --stamp-red: #a63a2c;
+    --stamp-red-soft: #a63a2c1a;
+    --stamp-green: #3c6b47;
+    --stamp-green-soft: #3c6b471a;
+    --brass: #96741f;
+    --focus: #2b5a7a;
+    --shadow: 0 1px 0 rgba(27, 32, 24, 0.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #171a15;
+      --paper-raised: #1f231b;
+      --paper-line: #333a2b;
+      --ink: #e7ebe2;
+      --ink-soft: #a3ab97;
+      --ink-faint: #737b68;
+      --stamp-red: #d97160;
+      --stamp-red-soft: #d971601f;
+      --stamp-green: #7cb28c;
+      --stamp-green-soft: #7cb28c1f;
+      --brass: #d3b25a;
+      --focus: #7fb2d8;
+      --shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #171a15;
+    --paper-raised: #1f231b;
+    --paper-line: #333a2b;
+    --ink: #e7ebe2;
+    --ink-soft: #a3ab97;
+    --ink-faint: #737b68;
+    --stamp-red: #d97160;
+    --stamp-red-soft: #d971601f;
+    --stamp-green: #7cb28c;
+    --stamp-green-soft: #7cb28c1f;
+    --brass: #d3b25a;
+    --focus: #7fb2d8;
+    --shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    padding: 0 20px;
+    padding-block: 56px 80px;
+  }
+  ::selection { background: var(--stamp-red-soft); }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+  .sheet { max-width: 860px; margin: 0 auto; }
+
+  .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--stamp-green);
+    box-shadow: 0 0 0 3px var(--stamp-green-soft);
+  }
+
+  /* ---------- masthead ---------- */
+  header.masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--paper-line);
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .masthead-text { max-width: 560px; }
+  h1.title {
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: clamp(40px, 6vw, 58px);
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+    margin: 10px 0 12px;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    max-width: 46ch;
+  }
+  .stamp {
+    flex: 0 0 auto;
+    width: 132px; height: 132px;
+    border: 2.5px solid var(--stamp-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: rotate(-8deg);
+    color: var(--stamp-green);
+    position: relative;
+  }
+  .stamp::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border: 1px dashed var(--stamp-green);
+    border-radius: 50%;
+    opacity: 0.55;
+  }
+  .stamp-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
+  }
+  .stamp-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  /* ---------- thesis ---------- */
+  .thesis {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(21px, 2.6vw, 27px);
+    line-height: 1.42;
+    text-wrap: balance;
+    margin: 0 0 40px;
+    max-width: 62ch;
+  }
+  .thesis .hl { color: var(--stamp-red); font-weight: 600; }
+
+  /* ---------- exhibit ---------- */
+  section.exhibit { margin-bottom: 52px; }
+  .exhibit-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .exhibit-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 0;
+  }
+  .exhibit-meta { font-size: 13px; color: var(--ink-faint); }
+  .exhibit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--paper-line);
+    border: 1px solid var(--paper-line);
+  }
+  .exhibit-pane { background: var(--paper-raised); position: relative; }
+  .exhibit-pane img { display: block; width: 100%; height: auto; }
+  .exhibit-tag {
+    position: absolute; top: 10px; left: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    color: var(--ink-soft);
+  }
+  .exhibit-pane.after .exhibit-tag { color: var(--stamp-red); border-color: var(--stamp-red); }
+  .exhibit-caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    padding-top: 10px;
+    line-height: 1.5;
+  }
+  .exhibit-caption strong { color: var(--ink); font-weight: 600; }
+  .exhibit-caption .mono { color: var(--stamp-red); }
+
+  /* ---------- waypoints ---------- */
+  section.route { margin-bottom: 52px; }
+  section.route h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 0 0 18px;
+  }
+  .route-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--paper-line);
+    border-left: 1px solid var(--paper-line);
+  }
+  .waypoint {
+    border-right: 1px solid var(--paper-line);
+    border-bottom: 1px solid var(--paper-line);
+    padding: 18px 16px 20px;
+    background: var(--paper-raised);
+  }
+  .waypoint .n {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--brass);
+    letter-spacing: 0.08em;
+  }
+  .waypoint h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 16.5px;
+    font-weight: 600;
+    margin: 6px 0 6px;
+  }
+  .waypoint p {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ---------- ledger ---------- */
+  section.ledger { margin-bottom: 52px; }
+  section.ledger h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 0 0 4px;
+  }
+  section.ledger .sub { font-size: 13.5px; color: var(--ink-faint); margin-bottom: 16px; }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--paper-line); }
+  table { width: 100%; border-collapse: collapse; min-width: 640px; }
+  thead th {
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--paper-line);
+    background: var(--paper-raised);
+  }
+  tbody td {
+    padding: 11px 14px;
+    font-size: 13.5px;
+    border-bottom: 1px solid var(--paper-line);
+    font-variant-numeric: tabular-nums;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--paper-raised); }
+  td.journey { font-weight: 500; }
+  td.diff { font-family: 'IBM Plex Mono', monospace; color: var(--ink-soft); }
+  td.diff.hot { color: var(--stamp-red); font-weight: 500; }
+  .verdict {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    padding: 3px 9px;
+    border: 1px solid currentColor;
+  }
+  .verdict.pass { color: var(--stamp-green); }
+  .verdict.fail { color: var(--stamp-red); }
+
+  /* ---------- cta ---------- */
+  footer.cta {
+    border-top: 1px solid var(--paper-line);
+    padding-top: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    padding: 12px 18px;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn.primary { background: var(--stamp-red); border-color: var(--stamp-red); color: #fdf8f2; }
+  .btn.primary:hover { background: var(--ink); border-color: var(--ink); }
+  .credit { font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; max-width: 32ch; }
+  .credit a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; }
+
+  @media (max-width: 640px) {
+    .route-grid { grid-template-columns: repeat(2, 1fr); }
+    .exhibit-grid { grid-template-columns: 1fr; }
+    header.masthead { flex-direction: column; }
+    .stamp { transform: rotate(-6deg); }
+  }
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="masthead-text">
+      <div class="eyebrow">Field report · Solari Cookbook application</div>
+      <h1 class="title">Journeyman</h1>
+      <p class="tagline">A synthetic monitor that reads a page like a QA engineer, not a selector — then forks a Solari Sandbox to catch what reading can't.</p>
+    </div>
+    <div class="stamp">
+      <div>
+        <div class="stamp-num">8/10</div>
+        <div class="stamp-label">Runs&nbsp;Passed</div>
+      </div>
+    </div>
+  </header>
+
+  <p class="thesis">
+    A page can say everything it's supposed to say and still look broken.
+    On this run, the text check said <span class="hl">PASS</span> —
+    twice — while a Solari Sandbox, diffing pixels in a disposable microVM,
+    caught <span class="hl">4.08% of the page quietly drifting</span> underneath it.
+  </p>
+
+  <section class="exhibit">
+    <div class="exhibit-head">
+      <h2>Exhibit A — dynamic-content-visual-drift</h2>
+      <div class="exhibit-meta mono">run 20260913T024029Z · 3155ms</div>
+    </div>
+    <div class="exhibit-grid">
+      <div class="exhibit-pane before">
+        <span class="exhibit-tag">Baseline</span>
+        <img src="exhibit-baseline.png" alt="Baseline capture of the dynamic content page, last known-good run">
+      </div>
+      <div class="exhibit-pane after">
+        <span class="exhibit-tag">Redlined</span>
+        <img src="exhibit-diff.png" alt="Current run with changed pixels highlighted in red by the sandbox diff">
+      </div>
+    </div>
+    <div class="exhibit-caption">
+      <span>Heuristic judge: <strong>PASS</strong> — "all text/url expectations satisfied"</span>
+      <span>Sandbox diff: <strong class="mono">4.08%</strong> of pixels changed vs. baseline</span>
+    </div>
+  </section>
+
+  <section class="route">
+    <h2>How a journey travels</h2>
+    <div class="route-grid">
+      <div class="waypoint">
+        <div class="n">01 · BROWSER</div>
+        <h3>Walk it</h3>
+        <p>A real Solari Chrome session runs the steps — fill, click, wait — and reads the page's own visible text, not its markup.</p>
+      </div>
+      <div class="waypoint">
+        <div class="n">02 · JUDGE</div>
+        <h3>Read it</h3>
+        <p>A deterministic heuristic decides pass/fail from that text. No vendor key required — an optional Claude-vision judge is one env var away.</p>
+      </div>
+      <div class="waypoint">
+        <div class="n">03 · SANDBOX</div>
+        <h3>Redline it</h3>
+        <p>One disposable Solari Sandbox, reused across the run, pixel-diffs the screenshot against the last known-good baseline.</p>
+      </div>
+      <div class="waypoint">
+        <div class="n">04 · LEDGER</div>
+        <h3>Stamp it</h3>
+        <p>Verdict, diff %, and evidence get written to an append-only ledger. A baseline only advances on a pass.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ledger">
+    <h2>The log</h2>
+    <div class="sub">Ten runs, five journeys, two passes — committed verbatim, nothing staged. <a href="dashboard/index.html" style="color:var(--focus)">Open the full dashboard →</a></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Journey</th><th>Backend</th><th>Verdict</th><th>Diff</th><th>Duration</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="journey">login-success</td><td class="mono">browser</td><td><span class="verdict pass">PASS</span></td><td class="diff">0.0%</td><td class="mono">4078ms</td></tr>
+          <tr><td class="journey">login-invalid-credentials</td><td class="mono">browser</td><td><span class="verdict pass">PASS</span></td><td class="diff">0.0%</td><td class="mono">3891ms</td></tr>
+          <tr><td class="journey">dynamic-content-visual-drift</td><td class="mono">browser</td><td><span class="verdict pass">PASS</span></td><td class="diff hot">4.08%</td><td class="mono">3155ms</td></tr>
+          <tr><td class="journey">desktop-notepad-smoke</td><td class="mono">desktop</td><td><span class="verdict pass">PASS</span></td><td class="diff">0.01%</td><td class="mono">7467ms</td></tr>
+          <tr><td class="journey">_demo_intentional_failure</td><td class="mono">browser</td><td><span class="verdict fail">FAIL</span></td><td class="diff">—</td><td class="mono">4250ms</td></tr>
+          <tr><td class="journey">login-success</td><td class="mono">browser</td><td><span class="verdict pass">PASS</span></td><td class="diff">—<span class="mono" style="opacity:.6"> (baseline)</span></td><td class="mono">4016ms</td></tr>
+          <tr><td class="journey">login-invalid-credentials</td><td class="mono">browser</td><td><span class="verdict pass">PASS</span></td><td class="diff">—<span class="mono" style="opacity:.6"> (baseline)</span></td><td class="mono">4171ms</td></tr>
+          <tr><td class="journey">dynamic-content-visual-drift</td><td class="mono">browser</td><td><span class="verdict pass">PASS</span></td><td class="diff">—<span class="mono" style="opacity:.6"> (baseline)</span></td><td class="mono">3094ms</td></tr>
+          <tr><td class="journey">desktop-notepad-smoke</td><td class="mono">desktop</td><td><span class="verdict pass">PASS</span></td><td class="diff">—<span class="mono" style="opacity:.6"> (baseline)</span></td><td class="mono">7359ms</td></tr>
+          <tr><td class="journey">_demo_intentional_failure</td><td class="mono">browser</td><td><span class="verdict fail">FAIL</span></td><td class="diff">—</td><td class="mono">4282ms</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="cta">
+    <div class="cta-buttons">
+      <a class="btn primary" href="https://github.com/harshlotia/solari-cookbook/tree/main/applications/journeyman" target="_blank" rel="noopener">Fork on GitHub →</a>
+      <a class="btn" href="dashboard/index.html" target="_blank" rel="noopener">Open the live dashboard →</a>
+    </div>
+    <div class="credit">
+      Built on <a href="https://getsolari.com" target="_blank" rel="noopener">Solari</a> — browser, sandbox, and desktop, one API key.
+      Every image in the exhibit above is an unedited capture from a real run.
+    </div>
+  </footer>
+
+</div>
